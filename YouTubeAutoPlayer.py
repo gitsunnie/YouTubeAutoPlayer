@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ï»¿# -*- coding: utf-8 -*-
 
 from selenium import webdriver
 import time
@@ -8,8 +8,8 @@ import socket
 def auto():
     opt = webdriver.ChromeOptions()
     opt.add_argument('--headless')
-    opt.binary_location = '/app/.apt/usr/bin/google-chrome'  # Heroku ‚Å‚ÍƒoƒCƒiƒŠ‚ğw’è‚·‚é
-    driver_path = '/app/.chromedriver/bin/chromedriver'  # Heroku ‚É‚¨‚¯‚é driver ‚ÌˆÊ’u
+    opt.binary_location = '/app/.apt/usr/bin/google-chrome'  # Heroku ã§ã¯ãƒã‚¤ãƒŠãƒªã‚’æŒ‡å®šã™ã‚‹
+    driver_path = '/app/.chromedriver/bin/chromedriver'  # Heroku ã«ãŠã‘ã‚‹ driver ã®ä½ç½®
     driver = webdriver.Chrome(executable_path=driver_path, chrome_options=opt)
 
     driver.get('https://www.youtube.com/watch?v=s1sHeQnPu90')
