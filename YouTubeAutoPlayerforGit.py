@@ -57,6 +57,7 @@ def auth_google():
             content = file.GetContentString()
             file2 = file
             # print(file2)
+            print('done')
             break
 
     file2.GetContentFile('a.csv')  # csv ファイルとしてダウンロード
