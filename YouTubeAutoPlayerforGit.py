@@ -53,7 +53,7 @@ def auth_google():
     query = '"{0}" in parents and trashed=false'.format(drive_folder_id)
     file_list = drive.ListFile({'q': query}).GetList()
     for file in file_list:
-        if file['title'] == 'AutoYouTubeResult.csv':  # WeatherResult.csv を取得してダウンロードする
+        if file['title'] == 'YouTubeAutoResult.csv':  # WeatherResult.csv を取得してダウンロードする
             content = file.GetContentString()
             file2 = file
             # print(file2)
@@ -137,7 +137,7 @@ def upload_file(drive):
     # PythonWorks > ' Result Stock のフォルダ ID
     file2 = drive.CreateFile({'parents': [{'id': '16k1-Ok7OHFjSPtMkvuVEoBmLUBqlKH9i'}]})
     file2.SetContentFile('a.csv')
-    file2['title'] = 'AutoYouTubeResult.csv'
+    file2['title'] = 'YouTubeAutoResult.csv'
     file2.Upload()
 
 
