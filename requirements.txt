@@ -7,3 +7,4 @@ bottle==0.12.9
 selenium==3.141.0
 PyDrive==1.3.1
 oauth2client==4.1.3
+beautifulsoup4==4.6.3
