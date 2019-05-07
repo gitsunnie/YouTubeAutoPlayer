@@ -123,10 +123,12 @@ def get_ip():
 def write_csv(views, host, ip):
     # 現在の時間を取得
     dt_now = datetime.datetime.now()
-    year = dt_now.year
-    month = dt_now.month
-    day = dt_now.day
-    present_time = dt_now.time()
+    td_9h = datetime.timedelta(hours=9)
+    dt_now_japan = dt_now + td_9h
+    year = dt_now_japan.year
+    month = dt_now_japan.month
+    day = dt_now_japan.day
+    present_time = dt_now_japan.time()
 
     with open('a.csv', mode='a', newline='') as f:
         writer = csv.writer(f)
