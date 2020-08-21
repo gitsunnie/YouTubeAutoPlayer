@@ -38,25 +38,20 @@ def auth_google():
 
     drive = GoogleDrive(gauth)
 
-    """
-    # Git > WeatherExtractor 内のファイル一覧を ID と共に表示
+    # YouTubeAutoResult.csv を操作してみる
+    # 操作したいファイルがあるフォルダの URL から、ID を取得する
+    # 例: https://drive.google.com/drive/u/0/folders/16k1-Ok7OHFjSPtMkvuVEoBmLUBqlKH9i
     drive_folder_id = '16k1-Ok7OHFjSPtMkvuVEoBmLUBqlKH9i'
     query = '"{0}" in parents and trashed=false'.format(drive_folder_id)
-    file_list = drive.ListFile({'q': query}).GetList()
-    for file1 in file_list:
-        print('title: %s, id: %s' % (file1['title'], file1['id']))
-        print(file1)
-    """
-
-    # WeatherResult.csv を操作してみる
-    drive_folder_id = '16k1-Ok7OHFjSPtMkvuVEoBmLUBqlKH9i'
-    query = '"{0}" in parents and trashed=false'.format(drive_folder_id)
+    # 指定のフォルダ内のファイル一覧を ID と共に取得する
     file_list = drive.ListFile({'q': query}).GetList()
     for file in file_list:
-        if file['title'] == 'YouTubeAutoResult.csv':  # WeatherResult.csv を取得してダウンロードする
+        if file['title'] == 'YouTubeAutoResult.csv':  # YouTubeAutoResult.csv を取得してダウンロードする
             content = file.GetContentString()
             file2 = file
             break
+        else:
+            pass
 
     file2.GetContentFile('a.csv')  # csv ファイルとしてダウンロード
     file2.Trash()  # WeatherResult.csv をゴミ箱に移動
